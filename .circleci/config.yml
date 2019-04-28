@@ -1,8 +1,96 @@
-version: 2
-jobs:
-  build:
+version: 2.1
+
+orbs:
+  node: circleci/node@1.0.1
+
+executors:
+  default_executor:
     docker:
       - image: circleci/node:10
+    working_directory: ~/project
+
+commands:
+  run_npm_install_with_cache:
+    description: 'Run NPM install with cache'
+    steps:
+      - node/with-cache:
+          cache-key: 'package-lock.json'
+          dir: node_modules
+          steps:
+            - run:
+                name: Run NPM install
+                command: npm ci
+
+jobs:
+  code_coverage:
+    executor: default_executor
     steps:
       - checkout
-      - run: echo "Hello World!"
+      - run_npm_install_with_cache
+      - run:
+          name: Download Code Climate Test Reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+      - run:
+          name: Notify Code Climate Test Reporter - Before Build
+          command: ./cc-test-reporter before-build
+      - run:
+          name: Run code coverage
+          command: npm test -- --coverage
+      - run:
+          name: Notify Code Climate Test Reporter - After Build
+          command: ./cc-test-reporter after-build --exit-code $?
+
+  lint:
+    executor: default_executor
+    steps:
+      - checkout
+      - run_npm_install_with_cache
+      - run:
+          name: Run code linter
+          command: npm run lint src/**/*.ts
+
+  release:
+    executor: default_executor
+    steps:
+      - checkout
+      - run_npm_install_with_cache
+      - run:
+          name: Run semantic release
+          command: npm run semantic-release
+
+  unit_test:
+    executor: default_executor
+    steps:
+      - checkout
+      - run_npm_install_with_cache
+      - run:
+          name: Run unit test
+          command: npm test -- --runInBand --ci --reporters=default --reporters=jest-junit
+          environment:
+            JEST_JUNIT_OUTPUT: 'test_results/jest/unit_test_results.xml'
+      - store_test_results:
+          path: test_results
+      - store_artifacts:
+          path: test_results/jest
+
+workflows:
+  default_workflow:
+    jobs:
+      - lint
+      - unit_test
+      - code_coverage:
+          requires:
+            - lint
+            - unit_test
+          filters:
+            branches:
+              only: master
+      - release:
+          requires:
+            - lint
+            - unit_test
+          filters:
+            branches:
+              only: master

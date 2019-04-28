@@ -1,11 +1,12 @@
 {
-  "name": "server",
+  "name": "hero-tang-tea-server",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "build": "webpack --config webpack.$NODE_ENV.js",
     "lint": "eslint",
-    "start": "node dist/server",
+    "semantic-release": "semantic-release",
+    "start": "node ./dist/server",
     "test": "jest"
   },
   "repository": {
@@ -18,9 +19,40 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "CHANGELOG.md"
+        }
+      ],
+      "@semantic-release/npm",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "CHANGELOG.md",
+            "package.json"
+          ],
+          "message": "release: cut the ${nextRelease.version} release [skip ci]\n\n${nextRelease.notes}"
+        }
+      ],
+      "@semantic-release/github"
+    ],
+    "tagFormat": "${version}"
+  },
+  "dependencies": {
+    "apollo-server": "^2.4.8",
+    "graphql": "^14.2.1"
+  },
   "devDependencies": {
     "@commitlint/cli": "^7.5.2",
     "@commitlint/config-conventional": "^7.5.0",
+    "@semantic-release/changelog": "^3.0.2",
+    "@semantic-release/git": "^7.0.8",
     "@types/jest": "^24.0.11",
     "@types/node": "^11.13.8",
     "@types/webpack-env": "^1.13.9",
@@ -37,6 +69,7 @@
     "jest-junit": "^6.3.0",
     "prettier": "^1.17.0",
     "pretty-quick": "^1.10.0",
+    "semantic-release": "^15.13.3",
     "ts-jest": "^24.0.2",
     "ts-loader": "^5.4.4",
     "typescript": "^3.4.5",
@@ -44,9 +77,5 @@
     "webpack-cli": "^3.3.1",
     "webpack-merge": "^4.2.1",
     "webpack-node-externals": "^1.7.2"
-  },
-  "dependencies": {
-    "apollo-server": "^2.4.8",
-    "graphql": "^14.2.1"
   }
 }
