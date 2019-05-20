@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/alppix/hero-tang-tea-server/compare/1.1.0...1.2.0) (2019-05-20)
+
+
+### Features
+
+* **app:** add default data source ([#4](https://github.com/alppix/hero-tang-tea-server/issues/4)) ([8afaeaf](https://github.com/alppix/hero-tang-tea-server/commit/8afaeaf))
+
 # [1.1.0](https://github.com/alppix/hero-tang-tea-server/compare/1.0.0...1.1.0) (2019-04-28)
 
 
