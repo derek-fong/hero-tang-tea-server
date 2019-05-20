@@ -1,0 +1,74 @@
+"""
+Drink category.
+"""
+type DrinkCategory {
+  """
+  Drink category ID.
+  """
+  id: ID!
+
+  """
+  Drink category name.
+  """
+  name: Name!
+
+  """
+  Drink category description.
+  """
+  description: String!
+
+  """
+  Drinks belong to this category.
+  """
+  drinks: [Drink]!
+
+  """
+  Drink category creation timestamp.
+  """
+  createdAt: DateTime!
+
+  """
+  Drink category creator ID.
+  """
+  createdBy: String!
+
+  """
+  Drink category last updated timestamp.
+  """
+  updatedAt: DateTime!
+
+  """
+  ID of user who last updated this drink category.
+  """
+  updatedBy: String!
+
+  """
+  Release date and time of this drink category.
+  """
+  releasedAt: DateTime
+
+  """
+  ID of user who released this drink category.
+  """
+  releasedBy: String
+
+  """
+  Drink category suspension Date and time.
+  """
+  suspendedAt: DateTime
+
+  """
+  ID of user who suspended this drink category.
+  """
+  suspendedBy: String
+
+  """
+  Date and time this drink category retired.
+  """
+  retiredAt: DateTime
+
+  """
+  ID of user who retired this drink category.
+  """
+  retiredBy: String
+}

@@ -1,0 +1,6 @@
+type Mutation {
+  """
+  Create drink.
+  """
+  createDrink(input: CreateDrinkInput!): Drink!
+}

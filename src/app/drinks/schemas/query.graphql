@@ -1,0 +1,11 @@
+type Query {
+  """
+  Drink by ID which which has been released and not retired.
+  """
+  currentDrinkById(id: ID!): Drink
+
+  """
+  Drinks which have been released and not retired.
+  """
+  currentDrinks: [Drink]!
+}

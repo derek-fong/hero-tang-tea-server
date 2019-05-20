@@ -1,0 +1,61 @@
+input CreateDrinkInput {
+  """
+  Drink ID.
+  """
+  id: ID!
+
+  """
+  Drink name.
+  """
+  name: NameInput!
+
+  """
+  Drink description.
+  """
+  description: String!
+
+  """
+  Drink image source.
+  """
+  imgSrc: ImageSourceInput!
+
+  """
+  Drink option.
+  """
+  option: DrinkOptionInput!
+
+  """
+  Drink price.
+  """
+  price: DrinkPriceInput!
+
+  """
+  Drink category ID.
+  """
+  drinkCategoryId: String
+
+  """
+  Is this drink recommended?
+  """
+  isRecommended: Boolean!
+
+  """
+  Keywords related to drink.
+  """
+  keywords: [String]!
+
+  """
+  Drink release date.
+  """
+  releasedAt: DateTime
+
+  """
+  Drink suspend date.
+  """
+  suspendedAt: DateTime
+
+  """
+  Drink retire date.
+  """
+  retiredAt: DateTime
+}

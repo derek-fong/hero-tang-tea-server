@@ -1,0 +1,94 @@
+"""
+Drink.
+"""
+type Drink {
+  """
+  Drink ID.
+  """
+  id: ID!
+
+  """
+  Drink name.
+  """
+  name: Name!
+
+  """
+  Drink description.
+  """
+  description: String!
+
+  """
+  Drink image source.
+  """
+  imgSrc: ImageSource!
+
+  """
+  Drink option.
+  """
+  option: DrinkOption
+
+  """
+  Drink price.
+  """
+  price: DrinkPrice
+
+  """
+  Is This drink recommended?
+  """
+  isRecommended: Boolean!
+
+  """
+  Keywords related to this drink.
+  """
+  keywords: [String]!
+
+  """
+  Drink creation timestamp.
+  """
+  createdAt: DateTime!
+
+  """
+  Drink creator ID.
+  """
+  createdBy: String!
+
+  """
+  Drink last updated timestamp.
+  """
+  updatedAt: DateTime!
+
+  """
+  ID of user who last updated this drink.
+  """
+  updatedBy: String!
+
+  """
+  Release date and time of this drink.
+  """
+  releasedAt: DateTime
+
+  """
+  ID of user who released this drink.
+  """
+  releasedBy: String
+
+  """
+  Drink suspension Date and time.
+  """
+  suspendedAt: DateTime
+
+  """
+  ID of user who suspended this drink.
+  """
+  suspendedBy: String
+
+  """
+  Date and time this drink retired.
+  """
+  retiredAt: DateTime
+
+  """
+  ID of user who retired this drink.
+  """
+  retiredBy: String
+}

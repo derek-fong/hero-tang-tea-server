@@ -1,0 +1,11 @@
+type Query {
+  """
+  Drink category by ID which has been released and not retired.
+  """
+  currentDrinkCategoryById(id: ID!): DrinkCategory
+
+  """
+  Drink categories which have been released and not retired.
+  """
+  currentDrinkCategories: [DrinkCategory]!
+}

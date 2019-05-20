@@ -8,6 +8,12 @@ export interface Environment {
     introspection: boolean;
     playground: boolean;
   };
+  database: {
+    mongo: {
+      uri: string;
+    };
+  };
+  name: string;
   port: number | string;
 }
 
@@ -19,5 +25,11 @@ export const environment: Environment = {
     introspection: process.env.APOLLO_INTROSPECTION === 'true',
     playground: process.env.APOLLO_PLAYGROUND === 'true'
   },
+  database: {
+    mongo: {
+      uri: process.env.DATABASE_MONGO_URI as string
+    }
+  },
+  name: process.env.NODE_ENV as string,
   port: process.env.PORT || defaultPort
 };

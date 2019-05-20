@@ -1,0 +1,29 @@
+"""
+Drink option.
+"""
+type DrinkOption {
+  """
+  Ice ratio.
+  """
+  iceRatio: Boolean!
+
+  """
+  Size.
+  """
+  size: Boolean!
+
+  """
+  Sugar ratio.
+  """
+  sugarRatio: Boolean!
+
+  """
+  Tea type.
+  """
+  teaType: Boolean!
+
+  """
+  Topping.
+  """
+  topping: Boolean!
+}

@@ -1,0 +1,19 @@
+"""
+Image source in various size.
+"""
+type ImageSource {
+  """
+  Source of image in small size.
+  """
+  s: String
+
+  """
+  Source of image in medium size.
+  """
+  m: String
+
+  """
+  Source of image in large size.
+  """
+  l: String
+}

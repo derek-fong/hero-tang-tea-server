@@ -1,0 +1,31 @@
+input CreatePromotionInput {
+  """
+  Promotion description.
+  """
+  description: String!
+
+  """
+  Promotion image source, which can be an URL or a relative path.
+  """
+  imgSrc: String!
+
+  """
+  Link to promotion detail, which can be an RUL or a relative path.
+  """
+  link: String!
+
+  """
+  Promotion release date.
+  """
+  releasedAt: DateTime
+
+  """
+  Promotion suspend date.
+  """
+  suspendedAt: DateTime
+
+  """
+  Promotion retire date.
+  """
+  retiredAt: DateTime
+}

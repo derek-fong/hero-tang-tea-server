@@ -1,0 +1,6 @@
+type Query {
+  """
+  Promotions which have been released, not suspended and not retired.
+  """
+  availablePromotions: [Promotion]!
+}

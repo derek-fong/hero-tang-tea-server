@@ -1,7 +1,8 @@
 import { ServerInfo } from 'apollo-server';
 
-import apolloServer from './apollo-server';
+import { apolloServer } from './apollo-server';
 import { environment } from './environment';
+import { connectMongooseAsync } from './mongoose-connection';
 
 /**
  * Bootstrap application server.
@@ -9,6 +10,11 @@ import { environment } from './environment';
  */
 async function bootstrapAsync(): Promise<void> {
   try {
+    await connectMongooseAsync(
+      environment.database.mongo.uri,
+      environment.name
+    );
+
     const serverInfo: ServerInfo = await apolloServer.listen(environment.port);
 
     console.log(`GraphQL server is listening on port ${serverInfo.port}. `);

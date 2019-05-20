@@ -1,0 +1,74 @@
+"""
+Promotion.
+"""
+type Promotion {
+  """
+  Promotion ID.
+  """
+  id: ID!
+
+  """
+  Promotion description.
+  """
+  description: String!
+
+  """
+  Promotion image source, which can be an URL or a relative path.
+  """
+  imgSrc: String!
+
+  """
+  Link to promotion detail, which can be an RUL or a relative path.
+  """
+  link: String!
+
+  """
+  Promotion creation timestamp.
+  """
+  createdAt: DateTime!
+
+  """
+  Promotion creator ID.
+  """
+  createdBy: String!
+
+  """
+  Promotion last updated timestamp.
+  """
+  updatedAt: DateTime!
+
+  """
+  ID of user who last updated this Promotion.
+  """
+  updatedBy: String!
+
+  """
+  Release date and time of this promotion.
+  """
+  releasedAt: DateTime
+
+  """
+  ID of user who released this promotion.
+  """
+  releasedBy: String
+
+  """
+  Promotion suspension Date and time.
+  """
+  suspendedAt: DateTime
+
+  """
+  ID of user who suspended this promotion.
+  """
+  suspendedBy: String
+
+  """
+  Date and time this promoition retired.
+  """
+  retiredAt: DateTime
+
+  """
+  ID of user who retired this promotion.
+  """
+  retiredBy: String
+}

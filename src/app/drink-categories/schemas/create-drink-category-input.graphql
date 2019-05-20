@@ -1,0 +1,34 @@
+"""
+Drink category input.
+"""
+input CreateDrinkCategoryInput {
+  """
+  Drink category ID.
+  """
+  id: ID!
+
+  """
+  Drink category name.
+  """
+  name: NameInput!
+
+  """
+  Drink category description.
+  """
+  description: String!
+
+  """
+  Drink category release date.
+  """
+  releasedAt: DateTime
+
+  """
+  Drink category suspend date.
+  """
+  suspendedAt: DateTime
+
+  """
+  Drink category retire date.
+  """
+  retiredAt: DateTime
+}

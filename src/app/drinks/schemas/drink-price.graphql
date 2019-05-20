@@ -1,0 +1,14 @@
+"""
+Drink price.
+"""
+type DrinkPrice {
+  """
+  Price for cold drink.
+  """
+  cold: Float
+
+  """
+  Price for hot drink.
+  """
+  hot: Float
+}

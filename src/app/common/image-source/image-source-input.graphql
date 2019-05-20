@@ -1,0 +1,19 @@
+"""
+Create image source input.
+"""
+input ImageSourceInput {
+  """
+  Source of image in small size.
+  """
+  s: String
+
+  """
+  Source of image in medium size.
+  """
+  m: String
+
+  """
+  Source of image in large size.
+  """
+  l: String
+}

@@ -7,6 +7,11 @@ module.exports = {
         exclude: [path.resolve(__dirname, 'node_modules')],
         test: /\.ts$/,
         use: 'ts-loader'
+      },
+      {
+        exclude: /node_modules/,
+        loader: 'graphql-tag/loader',
+        test: /\.(graphql|gql)$/
       }
     ]
   },
@@ -15,7 +20,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: ['.ts', '.js', '.graphql']
   },
   target: 'node'
 };

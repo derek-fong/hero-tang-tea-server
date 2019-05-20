@@ -1,0 +1,6 @@
+extend type Drink {
+  """
+  Category drink belongs to.
+  """
+  drinkCategory: DrinkCategory
+}

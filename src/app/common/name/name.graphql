@@ -1,0 +1,19 @@
+"""
+Name represent in various language.
+"""
+type Name {
+  """
+  Name in Australian English.
+  """
+  enAU: String
+
+  """
+  Name in Simplified Chinese.
+  """
+  zhHans: String
+
+  """
+  Name in Traditional Chinese.
+  """
+  zhHant: String
+}
