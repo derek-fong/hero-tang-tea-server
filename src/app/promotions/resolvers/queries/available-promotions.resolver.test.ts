@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { gql } from 'apollo-server';
+import { gql } from 'apollo-server-express';
 import { execute, ExecutionResult } from 'graphql';
 
 import { Promotion } from '../../models/promotion.model';

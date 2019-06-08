@@ -1,5 +1,5 @@
 import { ModuleContext } from '@graphql-modules/core';
-import { ApolloError } from 'apollo-server';
+import { ApolloError } from 'apollo-server-express';
 
 import { CreateDrinkInput } from '../../models/create-drink-input.model';
 import { DrinkDocument } from '../../models/drink.model';

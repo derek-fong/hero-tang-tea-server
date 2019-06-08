@@ -1,5 +1,5 @@
 import { ModuleContext } from '@graphql-modules/core';
-import { ApolloError } from 'apollo-server';
+import { ApolloError } from 'apollo-server-express';
 
 import { PromotionDocument } from '../../models/promotion.model';
 import { CreatePromotionInput } from '../../models/create-promotion-input.model';

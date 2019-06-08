@@ -1,5 +1,5 @@
 import { ModuleContext } from '@graphql-modules/core';
-import { ApolloError } from 'apollo-server';
+import { ApolloError } from 'apollo-server-express';
 
 import { CreateDrinkCategoryInput } from '../../models/create-drink-category-input.model';
 import { DrinkCategoryDocument } from '../../models/drink-category.model';

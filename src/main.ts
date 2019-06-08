@@ -1,4 +1,5 @@
-import { ServerInfo } from 'apollo-server';
+import express from 'express';
+import cors from 'cors';
 
 import { apolloServer } from './apollo-server';
 import { environment } from './environment';
@@ -15,9 +16,19 @@ async function bootstrapAsync(): Promise<void> {
       environment.name
     );
 
-    const serverInfo: ServerInfo = await apolloServer.listen(environment.port);
+    const app = express();
 
-    console.log(`GraphQL server is listening on port ${serverInfo.port}. `);
+    app.use(cors({ origin: true, credentials: true }));
+
+    apolloServer.applyMiddleware({
+      app,
+      path: '/',
+      cors: false
+    });
+
+    await app.listen({ port: environment.port });
+
+    console.log(`GraphQL server is listening on port ${environment.port}. `);
   } catch (error) {
     console.error(error);
   }

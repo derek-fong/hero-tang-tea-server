@@ -1,4 +1,3 @@
-import { ApolloError } from 'apollo-server';
 import { ModuleContext } from '@graphql-modules/core';
 
 import { DrinkDocument } from '../../models/drink.model';

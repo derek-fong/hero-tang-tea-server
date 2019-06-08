@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { gql } from 'apollo-server';
+import { gql } from 'apollo-server-express';
 import { execute, ExecutionResult } from 'graphql';
 
 import { DrinkCategoriesModule } from '../../drink-categories.module';
