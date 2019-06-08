@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/alppix/hero-tang-tea-server/compare/1.2.0...1.3.0) (2019-06-08)
+
+
+### Features
+
+* **app:** allow CORS ([#5](https://github.com/alppix/hero-tang-tea-server/issues/5)) ([c6eb033](https://github.com/alppix/hero-tang-tea-server/commit/c6eb033))
+
 # [1.2.0](https://github.com/alppix/hero-tang-tea-server/compare/1.1.0...1.2.0) (2019-05-20)
 
 
