@@ -1,6 +1,6 @@
 {
   "name": "hero-tang-tea-server",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "private": true,
   "scripts": {
     "apollo:service:push": "apollo service:push --key=$APOLLO_ENGINE_API_KEY --endpoint=$APOLLO_ENDPOINT",
