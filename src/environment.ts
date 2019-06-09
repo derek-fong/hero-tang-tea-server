@@ -1,3 +1,9 @@
+function getCorsOrigins(origins: string): string[] {
+  return origins
+    ? origins.split(',').map((origin: string): string => origin.trim())
+    : [];
+}
+
 const defaultPort = 4000;
 
 export interface Environment {
@@ -7,6 +13,9 @@ export interface Environment {
     };
     introspection: boolean;
     playground: boolean;
+  };
+  cors: {
+    origins: string[];
   };
   database: {
     mongo: {
@@ -24,6 +33,9 @@ export const environment: Environment = {
     },
     introspection: process.env.APOLLO_INTROSPECTION === 'true',
     playground: process.env.APOLLO_PLAYGROUND === 'true'
+  },
+  cors: {
+    origins: getCorsOrigins(process.env.CORS_ORIGINS as string)
   },
   database: {
     mongo: {

@@ -18,7 +18,7 @@ async function bootstrapAsync(): Promise<void> {
 
     const app = express();
 
-    app.use(cors({ origin: true, credentials: true }));
+    app.use(cors({ origin: environment.cors.origins }));
 
     apolloServer.applyMiddleware({
       app,
