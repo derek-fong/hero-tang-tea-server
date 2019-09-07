@@ -1,0 +1,54 @@
+"""
+Auditable item.
+"""
+interface AuditableItem {
+  """
+  Item creation timestamp.
+  """
+  createdAt: DateTime!
+
+  """
+  Item creator.
+  """
+  createdBy: Staff!
+
+  """
+  Item last updated timestamp.
+  """
+  updatedAt: DateTime
+
+  """
+  Staff who last updated this item.
+  """
+  updatedBy: Staff
+
+  """
+  Item release date.
+  """
+  releasedAt: DateTime
+
+  """
+  Staff who released this item.
+  """
+  releasedBy: Staff
+
+  """
+  Item suspection date.
+  """
+  suspendedAt: DateTime
+
+  """
+  Staff who suspended this item.
+  """
+  suspendedBy: Staff
+
+  """
+  Item retirement date.
+  """
+  retiredAt: DateTime
+
+  """
+  Staff who retired this item.
+  """
+  retiredBy: Staff
+}

@@ -1,0 +1,6 @@
+extend type DrinkCategory {
+  """
+  Drink that belongs to this drink category.
+  """
+  drinks: [Drink!]!
+}

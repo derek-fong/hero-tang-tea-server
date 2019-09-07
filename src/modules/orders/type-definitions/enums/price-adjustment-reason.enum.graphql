@@ -1,0 +1,29 @@
+"""
+Price adjustment reason.
+"""
+enum PriceAdjustmentReason {
+  """
+  Discount.
+  """
+  DISCOUNT
+
+  """
+  Loyalty program.
+  """
+  LOYALTY_PROGRAM
+
+  """
+  Membership price.
+  """
+  MEMBERSHIP
+
+  """
+  Other reason.
+  """
+  OTHER
+
+  """
+  Promotion.
+  """
+  PROMOTION
+}

@@ -1,0 +1,19 @@
+"""
+[ISO 639](https://www.iso.org/iso-639-language-codes.html) language codes.
+"""
+type Language {
+  """
+  English (Australia)
+  """
+  enAU: String
+
+  """
+  Simpified Chinese.
+  """
+  zhHans: String
+
+  """
+  Traditional Chinese.
+  """
+  zhHant: String
+}

@@ -1,0 +1,19 @@
+"""
+Customer.
+"""
+type Customer implements User {
+  """
+  Customer ID.
+  """
+  id: ID!
+
+  """
+  Family mame.
+  """
+  familyName: Language
+
+  """
+  Given name.
+  """
+  givenName: Language
+}

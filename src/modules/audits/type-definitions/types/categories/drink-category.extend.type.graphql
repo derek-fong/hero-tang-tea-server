@@ -1,0 +1,51 @@
+extend type DrinkCategory implements AuditableItem {
+  """
+  Drink category creation timestamp.
+  """
+  createdAt: DateTime!
+
+  """
+  Drink category creator.
+  """
+  createdBy: Staff!
+
+  """
+  Drink category last updated timestamp.
+  """
+  updatedAt: DateTime
+
+  """
+  Staff who last updated this drink category.
+  """
+  updatedBy: Staff
+
+  """
+  Drink category release date.
+  """
+  releasedAt: DateTime
+
+  """
+  Staff who released this drink category.
+  """
+  releasedBy: Staff
+
+  """
+  Drink category suspection date.
+  """
+  suspendedAt: DateTime
+
+  """
+  Staff who suspended this drink category.
+  """
+  suspendedBy: Staff
+
+  """
+  Drink category retirement date.
+  """
+  retiredAt: DateTime
+
+  """
+  Staff who retired this drink category.
+  """
+  retiredBy: Staff
+}

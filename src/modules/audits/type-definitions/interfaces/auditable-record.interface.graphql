@@ -1,0 +1,41 @@
+interface AuditableRecord {
+  """
+  Record creation timestamp.
+  """
+  createdAt: DateTime!
+
+  """
+  Record creator.
+  """
+  createdBy: User!
+
+  """
+  Record last updated timestamp.
+  """
+  updatedAt: DateTime
+
+  """
+  User who last updated this record.
+  """
+  updatedBy: User
+
+  """
+  Record cancellation date.
+  """
+  cancelleddAt: DateTime
+
+  """
+  User who cancelled this Record.
+  """
+  cancelleddBy: User
+
+  """
+  Record completion timestamp.
+  """
+  completedAt: DateTime
+
+  """
+  User who set this record as `completed`.
+  """
+  completedBy: User
+}

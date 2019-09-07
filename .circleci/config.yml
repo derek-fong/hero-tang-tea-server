@@ -58,7 +58,7 @@ jobs:
       - run_npm_install_with_cache
       - run:
           name: Run semantic release
-          command: npm run semantic-release
+          command: npx semantic-release
 
   unit_test:
     executor: default_executor

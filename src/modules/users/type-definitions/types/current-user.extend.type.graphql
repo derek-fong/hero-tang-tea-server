@@ -1,0 +1,11 @@
+extend type CurrentUser implements User {
+  """
+  Family mame.
+  """
+  familyName: Language
+
+  """
+  Given name.
+  """
+  givenName: Language
+}

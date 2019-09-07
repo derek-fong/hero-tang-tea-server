@@ -1,0 +1,19 @@
+"""
+Category.
+"""
+interface Category {
+  """
+  Category ID.
+  """
+  id: ID!
+
+  """
+  Category description.
+  """
+  description: Language!
+
+  """
+  Category name.
+  """
+  name: Language!
+}

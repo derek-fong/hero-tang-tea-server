@@ -1,13 +1,17 @@
 import { ApolloServer } from 'apollo-server-express';
 
 import { environment } from './environment';
-import { AppModule } from './app/app.module';
-
-const { schema } = AppModule;
+import { MainModule } from './modules/main.module';
 
 export const apolloServer = new ApolloServer({
-  schema,
-  engine: { apiKey: environment.apollo.engine.apiKey },
-  introspection: environment.apollo.introspection,
-  playground: environment.apollo.playground
+  context: session => session,
+  engine: {
+    apiKey: environment.apollo.engine.apiKey,
+    schemaTag: environment.apollo.engine.schemaTag,
+  },
+  introspection: environment.apollo.server.introspection,
+  mocks: true,
+  mockEntireSchema: false,
+  modules: [MainModule],
+  playground: environment.apollo.server.playground,
 });

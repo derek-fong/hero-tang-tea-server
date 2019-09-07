@@ -1,0 +1,29 @@
+"""
+Order.
+"""
+type Order {
+  """
+  Order ID.
+  """
+  id: ID!
+
+  """
+  Order items.
+  """
+  items: [OrderItem!]!
+
+  """
+  Order note.
+  """
+  note: String
+
+  """
+  Price adjustments.
+  """
+  priceAdjustments: [PriceAdjustment]!
+
+  """
+  Total price after price adjustment(s) applied.
+  """
+  totalPrice: Float!
+}

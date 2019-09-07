@@ -1,0 +1,11 @@
+"""
+Current user.
+"""
+type CurrentUser {
+  """
+  Current user ID.
+  """
+  id: ID!
+
+  permissions: [String]!
+}

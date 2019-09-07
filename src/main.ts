@@ -1,36 +1,54 @@
-import express from 'express';
+import { ApolloError } from 'apollo-server-express';
 import cors from 'cors';
+import express from 'express';
+import jwt from 'express-jwt';
+import { express as voyagerMiddleware } from 'graphql-voyager/middleware';
+import jwks from 'jwks-rsa';
 
 import { apolloServer } from './apollo-server';
 import { environment } from './environment';
-import { connectMongooseAsync } from './mongoose-connection';
 
 /**
- * Bootstrap application server.
- * @async
+ * Bootstrap GraphQL server.
  */
-async function bootstrapAsync(): Promise<void> {
-  try {
-    await connectMongooseAsync(
-      environment.database.mongo.uri,
-      environment.name
+(async function bootstrapAsync(): Promise<void> {
+  const app = express();
+  const voyagerEndpointUrl = environment.apollo.server.voyager.endpointUrl;
+
+  app.use(cors({ origin: environment.apollo.server.cors.origins }));
+
+  app.use(
+    jwt({
+      algorithms: ['RS256'],
+      audience: environment.auth.jwt.audience,
+      credentialsRequired: false,
+      issuer: environment.auth.jwt.issuer,
+      secret: jwks.expressJwtSecret({
+        cache: environment.auth.jwks.cache,
+        rateLimit: environment.auth.jwks.rateLimit,
+        jwksRequestsPerMinute: environment.auth.jwks.requestPerMinute,
+        jwksUri: environment.auth.jwks.uri,
+      }),
+    })
+  );
+
+  if (voyagerEndpointUrl) {
+    app.use(
+      '(/:baseDir)?/voyager',
+      voyagerMiddleware({ endpointUrl: voyagerEndpointUrl })
     );
+  }
 
-    const app = express();
+  apolloServer.applyMiddleware({ app, path: '/', cors: false });
 
-    app.use(cors({ origin: environment.cors.origins }));
+  try {
+    const port = environment.port;
 
-    apolloServer.applyMiddleware({
-      app,
-      path: '/',
-      cors: false
-    });
-
-    await app.listen({ port: environment.port });
-
-    console.log(`GraphQL server is listening on port ${environment.port}. `);
+    await app.listen({ port });
+    console.log(`GraphQL server is listening on port ${port}. `);
   } catch (error) {
     console.error(error);
+    throw new ApolloError(error);
   }
 
   // Hot module replacement.
@@ -42,10 +60,9 @@ async function bootstrapAsync(): Promise<void> {
           await apolloServer.stop();
         } catch (error) {
           console.error(error);
+          throw new ApolloError(error);
         }
       }
     );
   }
-}
-
-bootstrapAsync();
+})();

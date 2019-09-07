@@ -1,0 +1,14 @@
+"""
+Price adjustment type.
+"""
+enum PriceAdjustmentType {
+  """
+  Adjust price with a percentage value.
+  """
+  PERCENT
+
+  """
+  Adjust price with a fixed value.
+  """
+  VALUE
+}

@@ -1,0 +1,11 @@
+type Query {
+  """
+  Dirnk by ID.
+  """
+  drink(id: ID!): Drink
+
+  """
+  Test Message.
+  """
+  testMessage: String!
+}

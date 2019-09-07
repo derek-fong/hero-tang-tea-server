@@ -1,6 +1,0 @@
-type Mutation {
-  """
-  Create promotion.
-  """
-  createPromotion(input: CreatePromotionInput!): Promotion!
-}

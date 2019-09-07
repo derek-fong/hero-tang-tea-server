@@ -1,4 +1,4 @@
-function getCorsOrigins(origins: string): string[] {
+function getCorsOrigins(origins: string | undefined): string[] {
   return origins
     ? origins.split(',').map((origin: string): string => origin.trim())
     : [];
@@ -10,18 +10,38 @@ export interface Environment {
   apollo: {
     engine: {
       apiKey: string;
+      endpointUrl: string;
+      schemaTag: string;
     };
-    introspection: boolean;
-    playground: boolean;
+    server: {
+      cors: {
+        origins: string[];
+      };
+      introspection: boolean;
+      playground: boolean;
+      voyager: {
+        endpointUrl: string | undefined;
+      };
+    };
   };
-  cors: {
-    origins: string[];
+  auth: {
+    jwks: {
+      cache: boolean;
+      rateLimit: boolean;
+      requestPerMinute: number;
+      uri: string;
+    };
+    jwt: {
+      audience: string;
+      issuer: string;
+    };
   };
-  database: {
-    mongo: {
+  dataStores: {
+    mongoDb: {
       uri: string;
     };
   };
+
   name: string;
   port: number | string;
 }
@@ -29,19 +49,41 @@ export interface Environment {
 export const environment: Environment = {
   apollo: {
     engine: {
-      apiKey: process.env.APOLLO_ENGINE_API_KEY as string
+      apiKey: process.env.APOLLO_ENGINE_API_KEY as string,
+      endpointUrl: process.env.APOLLO_ENGINE_ENDPOINT_URL as string,
+      schemaTag: process.env.APOLLO_ENGINE_SCHEMA_TAG as string,
     },
-    introspection: process.env.APOLLO_INTROSPECTION === 'true',
-    playground: process.env.APOLLO_PLAYGROUND === 'true'
+    server: {
+      cors: {
+        origins: getCorsOrigins(process.env.APOLLO_SERVER_CORS_ORIGINS),
+      },
+      introspection: process.env.APOLLO_SERVER_INTROSPECTION === 'true',
+      playground: process.env.APOLLO_SERVER_PLAYGROUND === 'true',
+      voyager: {
+        endpointUrl: process.env.APOLLO_SERVER_VOYAGER_ENDPOINT_URL,
+      },
+    },
   },
-  cors: {
-    origins: getCorsOrigins(process.env.CORS_ORIGINS as string)
+  auth: {
+    jwks: {
+      cache: process.env.AUTH_JWKS_CACHE === 'true',
+      rateLimit: process.env.AUTH_JWKS_RATE_LIMIT === 'true',
+      requestPerMinute: parseInt(
+        process.env.AUTH_JWKS_REQUEST_PER_MINUTE as string,
+        10
+      ),
+      uri: process.env.AUTH_JWKS_URI as string,
+    },
+    jwt: {
+      audience: process.env.AUTH_JWT_AUDIENCE as string,
+      issuer: process.env.AUTH_JWT_ISSUER as string,
+    },
   },
-  database: {
-    mongo: {
-      uri: process.env.DATABASE_MONGO_URI as string
-    }
+  dataStores: {
+    mongoDb: {
+      uri: process.env.DATASTORES_MONGODB_URI as string,
+    },
   },
   name: process.env.NODE_ENV as string,
-  port: process.env.PORT || defaultPort
+  port: process.env.PORT || defaultPort,
 };

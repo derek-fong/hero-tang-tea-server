@@ -1,6 +1,0 @@
-type Mutation {
-  """
-  Create drink category.
-  """
-  createDrinkCategory(input: CreateDrinkCategoryInput!): DrinkCategory!
-}

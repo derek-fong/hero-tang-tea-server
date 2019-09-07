@@ -1,0 +1,14 @@
+"""
+User.
+"""
+interface User {
+  """
+  Family mame.
+  """
+  familyName: Language
+
+  """
+  Given name.
+  """
+  givenName: Language
+}

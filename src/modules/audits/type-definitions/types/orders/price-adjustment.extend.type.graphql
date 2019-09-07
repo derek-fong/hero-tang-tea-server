@@ -1,0 +1,11 @@
+extend type PriceAdjustment {
+  """
+  Price adjustment creation timestemp.
+  """
+  createdAt: DateTime!
+
+  """
+  User who created this price adjustment.
+  """
+  createdBy: User!
+}

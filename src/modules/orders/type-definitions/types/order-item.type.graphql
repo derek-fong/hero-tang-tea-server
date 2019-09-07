@@ -1,0 +1,26 @@
+"""
+Order Item.
+"""
+type OrderItem {
+  """
+  Order item note.
+  """
+  note: String
+
+  """
+  Order item products.
+
+  For example, a drink may be up-sized and contatins topping options.
+  """
+  products: [Product]!
+
+  """
+  Quantity of this order item.
+  """
+  quantity: Int!
+
+  """
+  Unit price for one quantity of order item.
+  """
+  unitPrice: Float!
+}

@@ -1,0 +1,24 @@
+"""
+Staff.
+"""
+type Staff implements User {
+  """
+  Staff ID.
+  """
+  id: ID!
+
+  """
+  Family mame.
+  """
+  familyName: Language
+
+  """
+  Given name.
+  """
+  givenName: Language
+
+  """
+  Job title.
+  """
+  jobTitle: Language!
+}

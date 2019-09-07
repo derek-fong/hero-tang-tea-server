@@ -1,0 +1,11 @@
+type mutation {
+  """
+  Login.
+  """
+  login: CurrentUser!
+
+  """
+  Logout.
+  """
+  logout: CurrentUser
+}

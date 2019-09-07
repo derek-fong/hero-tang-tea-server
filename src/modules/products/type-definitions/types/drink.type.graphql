@@ -1,0 +1,29 @@
+"""
+Drink.
+"""
+type Drink implements Product {
+  """
+  Drink ID.
+  """
+  id: ID!
+
+  """
+  Drink category.
+  """
+  category: DrinkCategory!
+
+  """
+  Drink description.
+  """
+  description: Language!
+
+  """
+  Drink keywords.
+  """
+  keywords: [Language]!
+
+  """
+  Drink name.
+  """
+  name: Language!
+}

@@ -1,4 +1,4 @@
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const merge = require('webpack-merge');
 const nodeExternals = require('webpack-node-externals');
 const path = require('path');
@@ -11,10 +11,10 @@ module.exports = merge.smart(common, {
   entry: ['webpack/hot/poll?1000', path.join(__dirname, 'src/main.ts')],
   externals: [
     nodeExternals({
-      whitelist: ['webpack/hot/poll?1000']
-    })
+      whitelist: ['webpack/hot/poll?1000'],
+    }),
   ],
   mode: 'development',
   plugins: [new CleanWebpackPlugin(), new webpack.HotModuleReplacementPlugin()],
-  watch: true
+  watch: true,
 });

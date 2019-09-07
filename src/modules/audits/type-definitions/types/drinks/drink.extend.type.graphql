@@ -1,0 +1,51 @@
+extend type Drink implements AuditableItem {
+  """
+  Item creation timestamp.
+  """
+  createdAt: DateTime!
+
+  """
+  Drink creator.
+  """
+  createdBy: Staff!
+
+  """
+  Drink last updated timestamp.
+  """
+  updatedAt: DateTime
+
+  """
+  Drink who last updated this item.
+  """
+  updatedBy: Staff
+
+  """
+  Drink release date.
+  """
+  releasedAt: DateTime
+
+  """
+  Staff who released this drink.
+  """
+  releasedBy: Staff
+
+  """
+  Drink suspection date.
+  """
+  suspendedAt: DateTime
+
+  """
+  Staff who suspended this drink.
+  """
+  suspendedBy: Staff
+
+  """
+  Drink retirement date.
+  """
+  retiredAt: DateTime
+
+  """
+  Staff who retired this drink.
+  """
+  retiredBy: Staff
+}

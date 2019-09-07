@@ -1,0 +1,41 @@
+extend type Order implements AuditableRecord {
+  """
+  Order creation timestamp.
+  """
+  createdAt: DateTime!
+
+  """
+  Order creator.
+  """
+  createdBy: User!
+
+  """
+  Order last updated timestamp.
+  """
+  updatedAt: DateTime
+
+  """
+  User who last updated this order.
+  """
+  updatedBy: User
+
+  """
+  Order cancellation date.
+  """
+  cancelleddAt: DateTime
+
+  """
+  User who cancelled this order.
+  """
+  cancelleddBy: User
+
+  """
+  Order completion timestamp.
+  """
+  completedAt: DateTime
+
+  """
+  User who set this order as `completed`.
+  """
+  completedBy: Staff
+}

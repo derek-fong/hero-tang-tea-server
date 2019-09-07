@@ -1,0 +1,19 @@
+"""
+Drink category.
+"""
+type DrinkCategory implements Category {
+  """
+  Drink category ID.
+  """
+  id: ID!
+
+  """
+  Drink category description.
+  """
+  description: Language!
+
+  """
+  Drink category name.
+  """
+  name: Language!
+}

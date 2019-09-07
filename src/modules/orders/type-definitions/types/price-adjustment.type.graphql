@@ -1,0 +1,30 @@
+"""
+Price adjustment.
+"""
+type PriceAdjustment {
+  """
+  Price adjustment type.
+  """
+  type: PriceAdjustmentType!
+
+  """
+  Price adjustment rate.
+
+  For example,
+  `-10%` means 10% off original price;
+  `-2.5` means $2.5 off original price.
+  """
+  rate: Float!
+
+  """
+  Price adjustment reason.
+  """
+  reason: PriceAdjustmentReason!
+
+  """
+  Price adjustment note.
+
+  Mandatory if "Other" reason is selected.
+  """
+  note: String
+}

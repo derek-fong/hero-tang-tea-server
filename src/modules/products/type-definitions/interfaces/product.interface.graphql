@@ -1,0 +1,29 @@
+"""
+Prodcut.
+"""
+interface Product {
+  """
+  Prodcut ID.
+  """
+  id: ID!
+
+  """
+  Product category.
+  """
+  category: Category
+
+  """
+  Product description.
+  """
+  description: Language!
+
+  """
+  Product keywords.
+  """
+  keywords: [Language]!
+
+  """
+  Product name.
+  """
+  name: Language!
+}
