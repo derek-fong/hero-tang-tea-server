@@ -4,8 +4,5 @@ import {
 } from '../../auth/shared/resolver-guards';
 
 export const resolversComposition = {
-  'Query.testMessage': [
-    isAuthenticated(),
-    // hasPermission(['products:read']),
-  ],
+  'Query.testMessage': [isAuthenticated(), hasPermission(['create:orders'])],
 };
